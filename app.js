@@ -45,7 +45,7 @@ resetButton.addEventListener('click', () => {
     shedButton.disabled = false;
     boulderButton.disabled = false;
     treeButton.disabled = false;
-})
+});
 
 function handleGuess(correctSpot, userGuess) {
     // reset the styles
