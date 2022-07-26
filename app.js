@@ -10,7 +10,7 @@ const boulderContainer = document.getElementById('boulder-container');
 const totalEl = document.getElementById('total');
 const lossesEl = document.getElementById('losses');
 const winsEl = document.getElementById('wins');
-
+const resetButton = document.getElementById('reset-button');
 // initialize state
 const hidingPlaces = ['tree', 'shed', 'boulder'];
 
@@ -38,11 +38,18 @@ boulderButton.addEventListener('click', () => {
     handleGuess(answer, 'boulder');
 });
 
-function handleGuess(correctSpot, userGuess) {
-    // reset the styles
+resetButton.addEventListener('click', () => {
     shedContainer.classList.remove('face');
     boulderContainer.classList.remove('face');
     treeContainer.classList.remove('face');
+    shedButton.disabled = false;
+    boulderButton.disabled = false;
+    treeButton.disabled = false;
+})
+
+function handleGuess(correctSpot, userGuess) {
+    // reset the styles
+    
     console.log(correctSpot + '-container');
     
     
@@ -70,6 +77,9 @@ function handleGuess(correctSpot, userGuess) {
     
     const correctEl = document.getElementById(correctSpot + '-container');
     correctEl.classList.add('face');
+    shedButton.disabled = true;
+    boulderButton.disabled = true;
+    treeButton.disabled = true;
 
 
 
